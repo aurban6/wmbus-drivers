@@ -3,7 +3,10 @@
 #include <vector>
 #include <string>
 #include <map>
+#include "esphome/core/log.h"
 #include "esphome/core/optional.h"
+
+static const char *TAG = "wmbus-drivers";
 
 struct Driver
 {
@@ -13,9 +16,15 @@ public:
   virtual esphome::optional<std::map<std::string, float>> get_values(std::vector<unsigned char> &telegram) = 0;
 
   std::string get_name() { return this->driver_type_; };
+  std::string get_key() { return this->key_; };
 
 protected:
-  Driver(std::string driver_type) : driver_type_(driver_type) {};
+  Driver(std::string driver_type, std::string key = "") :
+         driver_type_(driver_type),
+         key_(key) {
+    ESP_LOGV(TAG, "Added driver '%s' with key '%s'",
+             this->driver_type_.c_str(), this->key_.c_str());
+  };
 
   void add_to_map(std::map<std::string, float> &values,
                   std::string name,
@@ -345,4 +354,5 @@ protected:
 private:
   Driver();
   std::string driver_type_;
+  std::string key_;
 };
