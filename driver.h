@@ -8,6 +8,8 @@
 
 static const char *TAG = "wmbus-drivers";
 
+using namespace esphome;
+
 struct Driver
 {
   virtual ~Driver() = default; 
