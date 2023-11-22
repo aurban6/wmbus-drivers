@@ -67,7 +67,7 @@ protected:
         usage = ((uint32_t)telegram[i+3] << 24) | ((uint32_t)telegram[i+2] << 16) |
                 ((uint32_t)telegram[i+1] << 8)  | ((uint32_t)telegram[i+0]);
         ret_val = usage / 1000.0;
-        ESP_LOGVV(TAG, "Found register '0413' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0413' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -87,7 +87,7 @@ protected:
         usage = bcd_2_int(telegram, i, 4);
         // in kWh
         ret_val = usage / 3.6;
-        ESP_LOGVV(TAG, "Found register '0C0E' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0C0E' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -107,7 +107,7 @@ protected:
         usage = bcd_2_int(telegram, i, 4);
         // in kWh
         ret_val = usage / 36.00000;
-        ESP_LOGVV(TAG, "Found register '0C0D' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0C0D' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -127,7 +127,7 @@ protected:
         usage = bcd_2_int(telegram, i, 4);
         // in kWh
         ret_val = usage / 1000.0;
-        ESP_LOGVV(TAG, "Found register '0C03' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0C03' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -147,7 +147,7 @@ protected:
         usage = bcd_2_int(telegram, i, 4);
         // in kWh
         ret_val = usage / 10.0;
-        ESP_LOGVV(TAG, "Found register '0C05' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0C05' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -167,7 +167,7 @@ protected:
         usage = bcd_2_int(telegram, i, 4);
         // in kWh
         ret_val = usage / 1.0;
-        ESP_LOGVV(TAG, "Found register '0C06' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0C06' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -186,7 +186,7 @@ protected:
         i += 2;
         usage = bcd_2_int(telegram, i, 4);
         ret_val = usage / 1000.0;
-        ESP_LOGVV(TAG, "Found register '0C13' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0C13' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -206,7 +206,7 @@ protected:
         usage = bcd_2_int(telegram, i, 4);
         // in kWh
         ret_val = usage / 36000.0;
-        ESP_LOGVV(TAG, "Found register '0C0A' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0C0A' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -226,7 +226,7 @@ protected:
         usage = bcd_2_int(telegram, i, 6);
         // in kWh
         ret_val = usage / 36000.0;
-        ESP_LOGVV(TAG, "Found register '0E0A' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0E0A' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -246,7 +246,7 @@ protected:
         usage = bcd_2_int(telegram, i, 6);
         // in kWh
         ret_val = usage / 100000.0;
-        ESP_LOGVV(TAG, "Found register '0E01' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0E01' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -266,7 +266,7 @@ protected:
         usage = bcd_2_int(telegram, i, 2);
         // in kW
         ret_val = usage / 10.0;
-        ESP_LOGVV(TAG, "Found register '0A2D' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0A2D' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -286,7 +286,7 @@ protected:
         usage = bcd_2_int(telegram, i, 2);
         // in C
         ret_val = usage / 10.0;
-        ESP_LOGVV(TAG, "Found register '0A5A' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0A5A' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -306,7 +306,7 @@ protected:
         usage = bcd_2_int(telegram, i, 2);
         // in C
         ret_val = usage / 10.0;
-        ESP_LOGVV(TAG, "Found register '0A5E' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0A5E' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -325,7 +325,7 @@ protected:
         i += 3;
         usage = bcd_2_int(telegram, i, 4);
         ret_val = usage / 100.0;
-        ESP_LOGVV(TAG, "Found register '0C943A' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0C943A' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -344,7 +344,7 @@ protected:
         i += 2;
         usage = bcd_2_int(telegram, i, 4);
         ret_val = usage / 1000.0;
-        ESP_LOGVV(TAG, "Found register '0C2B' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0C2B' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
@@ -363,7 +363,7 @@ protected:
         i += 2;
         usage = bcd_2_int(telegram, i, 3);
         ret_val = usage / 1000.0;
-        ESP_LOGVV(TAG, "Found register '0B3B' with '%d'->'%f'", usage, ret_val.second);
+        ESP_LOGVV(TAG, "Found register '0B3B' with '%d'->'%f'", usage, ret_val.value());
         break;
       }
       i++;
